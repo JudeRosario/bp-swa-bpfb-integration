@@ -3,11 +3,11 @@
  * Plugin Name: Integrate Activity+ and Site Wide Activity
  * Version: 1.1.0
  * Description: This plugin contains glue code to hande sitewide activity widgets and safely integrates with Activity Plus
- * Author: Jude (WPMU DEV)
+ * Author: Jude Rosario (WPMU DEV)
  * Author URI: http://premium.wpmudev.org/
  */
 
-if(! class_exists('Swa_Bpfb') ):
+if(!class_exists('Swa_Bpfb') ):
 
 include_once(plugin_dir_path( dirname(__FILE__) ).'buddypress-activity-plus/lib/class_bpfb_binder.php');
 
@@ -16,10 +16,18 @@ class Swa_Bpfb{
 	var $swa_bpfb ;
 
     function __construct(){
-    		$this->swa_bpfb =new BpfbBinder() ;
-			add_action( 'wp_footer', array ( $this, 'inject_styles' ));
-	        add_action( 'wp_footer', array ( $this, 'inject_scripts' ));
+    		$this->swa_bpfb = new BpfbBinder() ;
         }
+// The starting point to this addon/class
+	public static function serve () {
+		$me = new self;
+		$me->add_hooks();
+	}
+
+	private function add_hooks () {
+		add_action( 'wp_footer', array ( $this, 'inject_styles' ));
+        add_action( 'wp_footer', array ( $this, 'inject_scripts' ));
+	}
 
 	function inject_styles() {
 		wp_enqueue_style('thickbox');
@@ -68,5 +76,14 @@ class Swa_Bpfb{
 endif ;
 
 $integrate = new Swa_Bpfb() ; 
+
+// Check if the base plugin is installed before activating the addon 
+add_action('plugins_loaded', 'init_swa_bpfb') ;
+
+	function init_swa_bpfb () {
+		if (class_exists('BpfbBinder'))
+			// Start the addon
+			Swa_Bpfb::serve();
+	}
 
 ?>
