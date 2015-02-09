@@ -487,7 +487,6 @@ if($('#whats-new-content').length) $('.widget_bp_swa_widget').hide();
 
 jQuery( document ).ready(function() {
 	jQuery( document ).ajaxComplete(function() {
- console.log( "ready!" );
 });
 
 });
