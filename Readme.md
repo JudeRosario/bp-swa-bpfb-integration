@@ -6,6 +6,9 @@ BuddyPress addon to integrate Site Wide Activity and Activity+
 
 This plugin integrates both and lets you have the best of both worlds. You can now have BuddyPress activity feeds displayed as a widget, while allowing for users to upload rich content like images, links & videos
 
+![Screenshot](http://i57.tinypic.com/29kvs41.png)
+
+
 #### Installation
 
 Download the zip file and upload it as part of the upload new plugin screen from the admin. It will show up in the list of installed plugins, simply click activate and it will work. 
