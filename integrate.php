@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Integrate Activity+ and Site Wide Activity
- * Version: 1.1.1
+ * Version: 1.1.2
  * Description: This plugin contains glue code to hande sitewide activity widgets and safely integrates with Activity Plus
  * Author: Jude Rosario (WPMU DEV)
  * Author URI: http://premium.wpmudev.org/
